@@ -34,4 +34,48 @@
  */
 export function canBorrowBook(memberAge, hasValidCard, overdueBooks) {
   // Your code here
+  if (memberAge<6){
+    return {allowed : false , message: "Too young - must be at least 6 years old"};
+  }
+  if (!hasValidCard){
+    return {allowed : false , message :"Invalid library card - please renew at the front desk"};
+  }
+
+  if (overdueBooks>0){
+    return {allowed : false, message:`Please return your ${overdueBooks} overdue book(s) first`};
+  }
+
+  return {allowed : true,
+    message : "You may borrow up to 3 books"
+  };
+
 }
+
+
+
+// def canBorrowBook(memberAge, hasValidCard, overdueBooks):
+
+//     if memberAge < 6:
+//         return {
+//             "allowed": False,
+//             "message": "Too young - must be at least 6 years old"
+//         }
+
+//     if not hasValidCard:
+//         return {
+//             "allowed": False,
+//             "message": "Invalid library card - please renew at the front desk"
+//         }
+
+
+//     if overdueBooks > 0:
+//         return {
+//             "allowed": False,
+//             "message": f"Please return your {overdueBooks} overdue book(s) first"
+//         }
+
+
+//     return {
+//         "allowed": True,
+//         "message": "You may borrow up to 3 books"
+//     }
